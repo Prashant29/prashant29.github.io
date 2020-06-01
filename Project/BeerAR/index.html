@@ -17,10 +17,8 @@
             function() {
                 console.log("Prashant, Marker found!");
               this.vid.play();
-              this.vid.setAttribute('position', marker.getAttribute('position'));
-              this.vid.setAttribute('visible', true);
               console.log("vid visible:" + this.vid.getAttribute('visible'));
-              console.log("vid positon:" + this.vid.getAttribute('position'));
+              
             }.bind(this)
           );
   
@@ -34,8 +32,31 @@
       });
     };
   </script>
-<body style="margin: 0px;">
 
+<style>
+  .arjs-loader {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .arjs-loader div {
+      text-align: center;
+      font-size: 1.25em;
+      color: white;
+  }
+</style>
+<body style="margin: 0px; overflow: hidden;">
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+</div>
     <a-scene debug
     vr-mode-ui="enabled: false;"
     renderer="antialias: true; alpha: true; precision: lowp; logarithmicDepthBuffer: true;"
@@ -49,6 +70,7 @@
       >
       <source src="./asset/Video/1.mp4" type="video/mp4">
     </video>
+    <img src="./asset/Images/beerGIF.gif" id="my-image" alt="gif">
     </a-assets>
     <!-- <a-assets>
         <a-asset-item id="model" src="./buster_drone/scene.gltf"></a-asset-item>
@@ -66,12 +88,12 @@
       smoothtlerance="0.01"
       smooththreshold="5"
     >
-   
+    <!-- <a-image src="#my-image" position="0 0.1 0" -->
+    <!-- rotation="-90 0 0"></a-image> -->
+    <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
     <a-video
-    src="#vid"
-    position="0 0.1 0"
-    rotation="-90 0 0"
-></a-video>
+    src="#vid"  position='50 150 -100' width='300'height='175' >
+                  </a-video>
     </a-nft>
     <a-entity camera></a-entity>
     <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible="">
