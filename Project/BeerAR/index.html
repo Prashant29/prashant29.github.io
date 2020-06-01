@@ -68,6 +68,10 @@
          preload="auto" id="vid" response-type="arraybuffer" loop
         crossorigin webkit-playsinline autoplay playsinline 
       >
+      <video src="https://cors-anywhere.herokuapp.com/https://www.w3schools.com/html/mov_bbb.mp4"
+                preload="auto" id="myvid" response-type="arraybuffer" loop
+                crossorigin webkit-playsinline autoplay muted playsinline>
+            </video>
       <source src="./asset/Video/1.mp4" type="video/mp4">
     </video>
     <img src="./asset/Images/beerGIF.gif" id="my-image" alt="gif">
@@ -92,7 +96,7 @@
     <!-- rotation="-90 0 0"></a-image> -->
     <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
     <a-video
-    src="#vid"  position='50 150 -100' width='300'height='175' >
+    src="#myvid"  rotation='90 0 0' position='50 150 -100' width='300'height='175' >
                   </a-video>
     </a-nft>
     <a-entity camera></a-entity>
