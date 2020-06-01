@@ -1,10 +1,79 @@
-<script src = "./js/aframe.min.js"></script>
-<script src = "./js/aframe-ar.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
-<body>
-    <a-scene embedded arjs>
-        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
 
-        <a-marker-camera preset='hiro'></a-marker-camera>
-    </a-scene>
+<!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+
+<script>
+    window.onload = function() {
+      AFRAME.registerComponent("videohandler", {
+        init: function() {
+          var marker = this.el;
+            console.log("Register Component");
+          this.vid = document.querySelector("#vid");
+  
+          marker.addEventListener(
+            "markerFound",
+            function() {
+                console.log("Prashant, Marker found!");
+              this.vid.play();
+              this.vid.setAttribute('position', marker.getAttribute('position'));
+              this.vid.setAttribute('visible', true);
+              console.log("vid visible:" + this.vid.getAttribute('visible'));
+              console.log("vid positon:" + this.vid.getAttribute('position'));
+            }.bind(this)
+          );
+  
+          marker.addEventListener(
+            "markerLost",
+            function() {
+              this.vid.pause();
+            }.bind(this)
+          );
+        }
+      });
+    };
+  </script>
+<body style="margin: 0px;">
+
+    <a-scene debug
+    vr-mode-ui="enabled: false;"
+    renderer="antialias: true; alpha: true; precision: lowp; logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+  >
+    <a-assets>
+      <video controls
+         preload="auto" id="vid" response-type="arraybuffer" loop
+        crossorigin webkit-playsinline autoplay playsinline 
+      >
+      <source src="./asset/Video/1.mp4" type="video/mp4">
+    </video>
+    </a-assets>
+    <!-- <a-assets>
+        <a-asset-item id="model" src="./buster_drone/scene.gltf"></a-asset-item>
+      </a-assets> -->
+      <!-- use your gltf model -->
+      <!-- <a-entity gltf-model="#model"></a-entity> -->
+      
+
+    <a-nft
+      videohandler
+      type="nft"
+      url="./asset/Marker/coors2"
+      smooth="true"
+      smoothcount="10"
+      smoothtlerance="0.01"
+      smooththreshold="5"
+    >
+    <a-entity position="0 1 -1">
+      <a-videosphere src="#vid" width="100%" height="100%" >
+      </a-videosphere>
+    </a-entity>
+    </a-nft>
+    <a-entity camera></a-entity>
+    <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible="">
+    </a-entity>
+  </a-scene>
+    
 </body>
