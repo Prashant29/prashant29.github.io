@@ -59,7 +59,7 @@
 </div>
     <a-scene debug
     vr-mode-ui="enabled: false;"
-    renderer="antialias: true; alpha: true; precision: lowp; logarithmicDepthBuffer: true;"
+    renderer="antialias: true; alpha: true; precision: mediump;"
     embedded
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
   >
@@ -100,9 +100,7 @@
     position='50 150 -100'
     width='300'
     height='175'
-    rotation='-90 0 0'>
-     
-                  </a-video>
+    rotation='-90 0 0'></a-video>
     </a-nft>
     <a-entity camera></a-entity>
     <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible="">
