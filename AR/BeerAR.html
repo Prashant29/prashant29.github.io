@@ -15,7 +15,7 @@
     
 		marker.addEventListener('markerLost', function() {
 			this.vid.pause();
-			this.vid.currentTime = 0;
+			//this.vid.currentTime = 0;
 		}.bind(this));
             }
         });
@@ -53,9 +53,9 @@
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
         <a-assets>
-            <video src="https://cors-anywhere.herokuapp.com/https://www.w3schools.com/html/mov_bbb.mp4"
+            <video src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/Prashant29/Beer_AR/f4b5dd103b2fad599f31caf0f7192886f132d7bd/Models/Coors2/videoplayback.mp4"
                 preload="auto" id="vid" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline autoplay muted playsinline>
+                crossorigin webkit-playsinline autoplay playsinline>
             </video>
         </a-assets>
 
@@ -69,8 +69,8 @@
                 src="#vid"
                 position='50 150 -100'
                 rotation='-90 0 0'
-                width='300'
-                height='175'
+                width='700'
+                height='675'
                 >
             </a-video>
         </a-nft>
