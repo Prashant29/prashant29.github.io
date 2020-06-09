@@ -8,11 +8,11 @@
                 var marker = this.el;
 
                 this.vid = document.querySelector("#vid");
-                console.log('marker pos: ', vid.getAttribute('geometry'));
+                console.log('marker pos: ', vid.getAttribute('position'));
                 
                 marker.addEventListener('markerFound', function () {
                     console.log('marker pos: ', marker.pos);
-                    console.log('marker pos: ', vid.getAttribute('geometry'));
+                    console.log('Vid pos: ', vid.getAttribute('position'));
                     this.vid.play();
                 }.bind(this));
     
@@ -65,12 +65,13 @@
         <a-nft
             videohandler
             type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://rawcdn.githack.com/Prashant29/Beer_AR/2e2692b7fd8ee1e052830fdbdac2cb273829826e/Models/Coors2/coors2'
-            
+            position='50 250 -500'
+                rotation='-90 0 0'
             smooth="true" smoothCount="10" smoothTolerance="0.01" smoothThreshold="5"
         >
             <a-video
                 src="#vid"
-                position='550 250 -500'
+                position='50 250 -500'
                 rotation='-90 0 0'
                 width='400'
                 height='275'
