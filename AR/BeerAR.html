@@ -8,9 +8,10 @@
                 var marker = this.el;
 
                 this.vid = document.querySelector("#vid");
-                console.log('marker pos: ', marker.pos);
+                
                 marker.addEventListener('markerFound', function () {
-                   
+                    console.log('marker pos: ', marker.pos);
+                    console.log('marker pos: ', vid.getAttribute('geometry'));
                     this.vid.play();
                 }.bind(this));
     
