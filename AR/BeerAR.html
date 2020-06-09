@@ -59,10 +59,10 @@
         <div>Loading, please wait...</div>
     </div>
     <centre>
-        <h1 id="ontrack">
+        <h1 id="ontrack" style="display: none;">
             tracking target
         </h1>  
-        <h1 id="onlost">
+        <h1 id="onlost" style="display: none;">
             lost target
         </h1>   
     </centre>
@@ -74,8 +74,10 @@
         <a-assets>
             <video src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/Prashant29/Beer_AR/f4b5dd103b2fad599f31caf0f7192886f132d7bd/Models/Coors2/videoplayback.mp4"
                 preload="auto" id="vid" response-type="arraybuffer" loop
-                crossorigin webkit-playsinline playsinline>
+                crossorigin webkit-playsinline playsinline geom>
             </video>
+            
+
         </a-assets>
 
         <a-nft
@@ -93,6 +95,8 @@
                 height='275'
                 >
             </a-video>
+            <a-entity text-geometry="value: Beer Detection!; font: #exoFont;" material="color: yellow; src: #pixels; repeat: 0.5 0.5;" rotation="-90 0 0">
+            </a-entity>
         </a-nft>
 		<a-entity camera></a-entity>
 	</a-scene>
