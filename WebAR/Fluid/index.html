@@ -5,9 +5,20 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>WebAR demo</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.min.js"></script>
    
 </head>
 <body>
     <h1>WebAR Fluid Demo</h1>
+    <a-scene embedded arjs>
+        <a-assets>
+          <a-asset-item id="my-gltf-model" src="https://desanixr.com/uploads/3d/mug_filling_up_with_coffee_experiment.glb"></a-asset-item>
+        </a-assets>
+        <a-marker preset="hiro">
+          <a-entity gltf-model="#my-gltf-model" scale="0.1 0.1 0.1"></a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
 </html>
